@@ -30,9 +30,17 @@ module.exports = {
   },
   "plugins": [
     "@typescript-eslint",
-    "react"
+    "react",
+    'import'
   ],
   "rules": {
+    semi: "off",
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+      },
+    ],
   },
   settings: {
     react: {

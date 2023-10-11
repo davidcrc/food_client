@@ -134,3 +134,82 @@ plugins: ["nativewind/babel"],
 ```ts
 /// <reference types="nativewind/types" />
 ```
+
+# Add @alias
+
+```bash
+yarn add --dev babel-plugin-module-resolver
+```
+
+```json
+//tsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      //We will have to add the same thing in babel.config.js
+      "@/*": ["src/*"]
+    }
+    //other options
+  }
+  //other configs
+}
+```
+
+```js
+// babel.config.js
+module.exports = {
+  plugins: [
+    // ...others,
+    [
+      "module-resolver",
+      {
+        root: ["."],
+        alias: {
+          // This has to be mirrored in tsconfig.json
+          "^@/(.+)": "./src/\\1",
+        },
+      },
+    ],
+  ],
+}
+```
+
+```bash
+yarn add --dev babel-plugin-import
+```
+
+```js
+// .eslintrc.js
+module.exports = {
+  // ... Otras configuraciones de ESLint ...
+  plugins: ["@typescript-eslint", "import"],
+  rules: {
+    // ... Otras reglas ...
+    "import/order": [
+      "error",
+      {
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+        ],
+        // 'newlines-between': 'always',
+      },
+    ],
+  },
+}
+```
+
+# Add react navigation ( run: pod install )
+
+```bash
+yarn add @react-navigation/native react-native-screens react-native-safe-area-context
+```
+
+```bash
+yarn add @react-navigation/native-stack
+```

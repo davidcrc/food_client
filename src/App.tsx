@@ -31,7 +31,7 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Text>Initial App</Text>
+          <Text className="text-red-500 text-4xl">Initial App</Text>
         </View>
       </ScrollView>
     </SafeAreaView>

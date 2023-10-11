@@ -1,3 +1,9 @@
+@ Setup project
+
+```bash
+npx react-native@latest init food_client --template react-native-template-typescript
+```
+
 # Add ESLINT
 
 ```bash
@@ -36,11 +42,11 @@ npx eslint --init
 module.exports = {
   singleQuote: false,
   semi: false,
-  arrowParens: 'avoid',
+  arrowParens: "avoid",
   bracketSameLine: true,
   bracketSpacing: true,
   singleQuote: false,
-};
+}
 ```
 
 ```bash
@@ -88,4 +94,43 @@ yarn add eslint-plugin-react-hooks --dev
     "plugin:react-hooks/recommended"
   ]
 }
+```
+
+# Add NativeWind
+
+```bash
+yarn add nativewind
+```
+
+```bash
+yarn add --dev tailwindcss@3.3.2
+```
+
+```bash
+yarn add postcss@8.4.23
+```
+
+- run:
+
+```bash
+npx tailwindcss init
+```
+
+- add folders that will use tailwind
+
+```ts
+content: ["./src/App.{js,jsx,ts,tsx}", "./screens/**/*.{js,jsx,ts,tsx}",  "./components/**/*.{js,jsx,ts,tsx}"],
+```
+
+- add to babel.config.js
+
+```js
+...,
+plugins: ["nativewind/babel"],
+```
+
+- for typescript projects, create: app.d.ts, and add:
+
+```ts
+/// <reference types="nativewind/types" />
 ```

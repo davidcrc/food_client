@@ -1,33 +1,35 @@
+type OpacityType = number | string
+
 const pallete = [
   {
     // orange
     text: "#f97316",
-    bgColor: (opacity: string) => `rgba(251, 146, 60, ${opacity})`,
+    bgColor: (opacity: OpacityType) => `rgba(251, 146, 60, ${opacity})`,
   },
   {
     // dark gray
     text: "#334155",
-    bgColor: (opacity: string) => `rgba(30, 41, 59, ${opacity})`,
+    bgColor: (opacity: OpacityType) => `rgba(30, 41, 59, ${opacity})`,
   },
   {
     // purple
     text: "#7c3aed",
-    bgColor: (opacity: string) => `rgba(167, 139, 250, ${opacity})`,
+    bgColor: (opacity: OpacityType) => `rgba(167, 139, 250, ${opacity})`,
   },
   {
     // green
     text: "#009950",
-    bgColor: (opacity: string) => `rgba(0, 179, 89, ${opacity})`,
+    bgColor: (opacity: OpacityType) => `rgba(0, 179, 89, ${opacity})`,
   },
   {
     // teal
     text: "#14b8a6",
-    bgColor: (opacity: string) => `rgba(45, 212, 191, ${opacity})`,
+    bgColor: (opacity: OpacityType) => `rgba(45, 212, 191, ${opacity})`,
   },
   {
     // red
     text: "#dc2626",
-    bgColor: (opacity: string) => `rgba(248, 113, 113, ${opacity})`,
+    bgColor: (opacity: OpacityType) => `rgba(248, 113, 113, ${opacity})`,
   },
 ]
 

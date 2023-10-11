@@ -119,7 +119,7 @@ npx tailwindcss init
 - add folders that will use tailwind
 
 ```ts
-content: ["./src/App.{js,jsx,ts,tsx}", "./screens/**/*.{js,jsx,ts,tsx}",  "./components/**/*.{js,jsx,ts,tsx}"],
+content: ["./src/App.{js,jsx,ts,tsx}", "./src/screens/**/*.{js,jsx,ts,tsx}", "./src/components/**/*.{js,jsx,ts,tsx}"],
 ```
 
 - add to babel.config.js
@@ -212,4 +212,16 @@ yarn add @react-navigation/native react-native-screens react-native-safe-area-co
 
 ```bash
 yarn add @react-navigation/native-stack
+```
+
+# Add Organizing Imports
+
+```bash
+yarn add -D eslint-plugin-import
+```
+
+# Add React Native Feather Icons
+
+```bash
+yarn add react-native-feather react-native-svg
 ```

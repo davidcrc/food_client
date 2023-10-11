@@ -57,6 +57,7 @@ export default function ResturantScreen() {
   return (
     <>
       <BasketIcon />
+      <StatusBar barStyle="light-content" />
 
       <View className="relative z-50">
         <TouchableOpacity

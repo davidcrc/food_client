@@ -100,6 +100,13 @@ export const featured: FeaturedType = {
           price: 10,
           image: IMAGES.pizzaDish,
         },
+        {
+          id: 4,
+          name: "big pizza",
+          description: "cheezy garlic big pizza",
+          price: 16,
+          image: IMAGES.pizzaDish,
+        },
       ],
     },
     {

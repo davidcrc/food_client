@@ -225,3 +225,57 @@ yarn add -D eslint-plugin-import
 ```bash
 yarn add react-native-feather react-native-svg
 ```
+
+# Add React Native Maps
+
+- FIRST: https://github.com/react-native-maps/react-native-maps/blob/master/docs/installation.md
+
+```bash
+yarn add react-native-maps
+```
+
+- in android/app/build.gradle, add:
+
+```gradle
+apply plugin: 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+```
+
+- in android/app/src/main/AndroidManifest.xml, add:
+
+```xml
+<meta-data
+  android:name="com.google.android.geo.API_KEY"
+  android:value="${MAPS_API_KEY}"/>
+```
+
+- in android/build.gradle,
+
+```json
+dependencies{
+  ///...
+  classpath "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:2.0.1"
+}
+```
+
+- add to ios/food_client/Info.plist
+
+```plist
+<key>MAPS_API_KEY</key>
+<string>$(MAPS_API_KEY)</string>
+```
+
+-
+
+- Add your API key(s)
+
+  - Android
+    - Open `android/local.properties` (or create the file if it doesn't already exist)
+    - Add the following line: `MAPS_API_KEY=your_api_key_here`
+  - iOS
+    - Open Xcode with Project and create a New -> Config file called Config
+    - Go to [Project] -> Info -> Configurations : select to debug and relese his Config file
+    - Add the following line: `MAPS_API_KEY=your_api_key_here`, in Config.xcconfig
+
+- Add to .gitignore: ios/Config.xcconfig
+
+- ALSO: Open project

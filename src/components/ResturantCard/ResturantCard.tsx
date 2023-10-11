@@ -22,22 +22,21 @@ const ResturantCard = ({
 
   return (
     <TouchableWithoutFeedback
-    // onPress={() => {
-    //   navigation.navigate("Restaurant", {
-    //     id,
-    //     title,
-    //     imgUrl,
-    //     rating,
-    //     type,
-    //     address,
-    //     description,
-    //     dishes,
-    //     lng,
-    //     reviews,
-    //     lat,
-    //   })
-    // }}
-    >
+      onPress={() => {
+        navigation.navigate("Restaurant", {
+          id,
+          title,
+          imgUrl,
+          rating,
+          type,
+          address,
+          description,
+          dishes,
+          lng,
+          reviews,
+          lat,
+        })
+      }}>
       <View
         style={{ shadowColor: themeColors.bgColor(0.2), shadowRadius: 7 }}
         className="mr-6 bg-white rounded-3xl shadow-lg">

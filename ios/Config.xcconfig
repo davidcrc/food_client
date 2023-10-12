@@ -7,4 +7,4 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
-MAPS_API_KEY=AIzaSyB9SBBxHJjY77cdzNUSpOfTXst_PDJHSs0
+MAPS_API_KEY=secret_key

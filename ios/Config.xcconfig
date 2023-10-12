@@ -1,0 +1,10 @@
+//
+//  Config.xcconfig
+//  food_client
+//
+//  Created by ravn on 11/10/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+MAPS_API_KEY=secret_key

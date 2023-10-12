@@ -5,8 +5,8 @@ import { categories } from "@/constants"
 // import { urlFor } from '../sanity';
 
 const Categories = () => {
-  const [activeCategory, setActiveCategory] = useState<number | null>(1)
-  const [categories, setCategories] = useState([])
+  const [activeCategory, setActiveCategory] = useState<number | null>(3)
+  // const [categories, setCategories] = useState([])
 
   useEffect(() => {
     // getCategories().then(data=>{

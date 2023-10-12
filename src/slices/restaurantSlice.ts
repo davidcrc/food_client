@@ -1,18 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
 import { RootState } from "@/stores/store"
+import { Dish } from "@/constants"
 
-interface Restaurant {
-  id: any
-  title: any
-  imgUrl: any
-  rating: any
-  genre: any
-  address: any
-  description: any
-  dishes: any
-  lng: any
-  lat: any
+export interface Restaurant {
+  id: number | undefined
+  title: string | undefined
+  imgUrl: string | undefined
+  rating: number | undefined
+  genre: string | undefined
+  address: string | undefined
+  description: string | undefined
+  dishes: Dish[] | undefined
+  lng: number
+  lat: number
 }
 
 export interface RestaurantState {
@@ -21,16 +22,16 @@ export interface RestaurantState {
 
 const initialState: RestaurantState = {
   restaurant: {
-    id: null,
-    title: null,
-    imgUrl: null,
-    rating: null,
-    genre: null,
-    address: null,
-    description: null,
-    dishes: null,
-    lng: null,
-    lat: null,
+    id: undefined,
+    title: undefined,
+    imgUrl: undefined,
+    rating: undefined,
+    genre: undefined,
+    address: undefined,
+    description: undefined,
+    dishes: undefined,
+    lng: -122.4324,
+    lat: 37.78825,
   },
 }
 

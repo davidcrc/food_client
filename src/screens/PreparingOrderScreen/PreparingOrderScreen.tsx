@@ -3,9 +3,11 @@ import { View, Text, Image } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import IMAGES from "@/assets"
 import { RouteName } from "@/navigation"
+import { PreparingOrderScreenNavigation } from "./PreparingOrderScreenTypes"
 
 const PreparingOrderScreen = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation<PreparingOrderScreenNavigation>()
+
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate(RouteName.Delivery)

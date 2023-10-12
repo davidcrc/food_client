@@ -13,12 +13,13 @@ import {
 } from "@/slices/cartSlice"
 import { ArrowLeft, Minus } from "react-native-feather"
 import { RouteName } from "@/navigation"
+import { CartScreenNavigation } from "./CartScreenTypes"
 
 type GroupedItems = Record<string, Item[]>
 
 const CartScreen = () => {
   const dispatch = useDispatch()
-  const navigation = useNavigation()
+  const navigation = useNavigation<CartScreenNavigation>()
   const [groupedItems, setGroupedItems] = useState<GroupedItems>({})
 
   const resturant = useSelector(selectRestaurant)

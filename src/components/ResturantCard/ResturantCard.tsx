@@ -5,11 +5,15 @@ import { themeColors } from "@/theme"
 import { MapPin } from "react-native-feather"
 import IMAGES from "@/assets"
 import { RouteName } from "@/navigation"
+import { ResturantCardNavigation } from "./ResturantCardTypes"
+import { Restaurant } from "@/constants"
+
+type RestaurantCardProps = Restaurant
 
 const ResturantCard = ({
   id,
-  title,
-  imgUrl,
+  name: title,
+  image: imgUrl,
   rating,
   type,
   address,
@@ -18,8 +22,8 @@ const ResturantCard = ({
   reviews,
   lng,
   lat,
-}) => {
-  const navigation = useNavigation()
+}: RestaurantCardProps) => {
+  const navigation = useNavigation<ResturantCardNavigation>()
 
   return (
     <TouchableWithoutFeedback

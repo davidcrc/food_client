@@ -11,7 +11,9 @@ import {
 } from "@/slices/cartSlice"
 import { RootState } from "@/stores/store"
 
-const DishRow = ({ name, description, id, price, image }: Item) => {
+type DishRowProps = Item
+
+const DishRow = ({ name, description, id, price, image }: DishRowProps) => {
   const dispatch = useDispatch()
   const cartItems = useSelector((state: RootState) =>
     selectCartItemsById(state, id)
@@ -44,11 +46,13 @@ const DishRow = ({ name, description, id, price, image }: Item) => {
               <TouchableOpacity
                 onPress={handleDecrease}
                 disabled={!cartItems.length}
-                className="p-1 rounded-full"
+                className="p-1 rounded-full disabled:bg-gray-400"
                 style={{ backgroundColor: themeColors.bgColor(1) }}>
                 <Minus strokeWidth={2} height={20} width={20} stroke="white" />
               </TouchableOpacity>
-              <Text className="px-3">{cartItems.length}</Text>
+              <Text className="flex justify-center text-center w-5 ">
+                {cartItems.length}
+              </Text>
 
               <TouchableOpacity
                 onPress={handleIncrease}

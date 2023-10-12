@@ -9,9 +9,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { selectRestaurant } from "@/slices/restaurantSlice"
 import { emptyCart } from "@/slices/cartSlice"
 import { RouteName } from "@/navigation"
+import { DeliveryScreenNavigation } from "./DeliveryScreenTypes"
 
 const DeliveryScreen = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation<DeliveryScreenNavigation>()
   const dispatch = useDispatch()
 
   const resturant = useSelector(selectRestaurant)

@@ -6,14 +6,19 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native"
-import React, { useEffect, useLayoutEffect, useState } from "react"
+import React, { useEffect, useLayoutEffect } from "react"
 import { useNavigation, useRoute } from "@react-navigation/native"
 import { CartIcon, DishRow } from "@/components"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { themeColors } from "@/theme"
-import * as Icon from "react-native-feather"
+import { ArrowLeft, MapPin } from "react-native-feather"
 import IMAGES from "@/assets"
-import { setRestaurant } from "@/slices/restaurantSlice"
+import { selectRestaurant, setRestaurant } from "@/slices/restaurantSlice"
+import {
+  ResturantScreenNavigation,
+  ResturantScreenRoute,
+} from "./ResturantScreenTypes"
+import { emptyCart } from "@/slices/cartSlice"
 
 const ResturantScreen = () => {
   const {
@@ -29,10 +34,10 @@ const ResturantScreen = () => {
       lng,
       lat,
     },
-  } = useRoute()
+  } = useRoute<ResturantScreenRoute>()
 
-  const navigation = useNavigation()
-  // const resturant = useSelector(selectResturant)
+  const navigation = useNavigation<ResturantScreenNavigation>()
+  const resturant = useSelector(selectRestaurant)
   let dispatch = useDispatch()
 
   useLayoutEffect(() => {
@@ -40,6 +45,11 @@ const ResturantScreen = () => {
   }, [])
 
   useEffect(() => {
+    // TODO: no remove just get items for selected restaurant
+    if (resturant && resturant.id != id) {
+      dispatch(emptyCart())
+    }
+
     dispatch(
       setRestaurant({
         id,
@@ -65,7 +75,7 @@ const ResturantScreen = () => {
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           className="absolute top-8 left-4 bg-gray-50 p-2 rounded-full shadow">
-          <Icon.ArrowLeft strokeWidth={3} stroke={themeColors.bgColor(1)} />
+          <ArrowLeft strokeWidth={3} stroke={themeColors.bgColor(1)} />
         </TouchableOpacity>
       </View>
 
@@ -90,7 +100,7 @@ const ResturantScreen = () => {
                 </Text>
               </View>
               <View className="flex-row items-center space-x-1">
-                <Icon.MapPin color="gray" width={15} height={15} />
+                <MapPin color="gray" width={15} height={15} />
                 <Text className="text-gray-800 text-xs">
                   Nearby · {address}
                 </Text>

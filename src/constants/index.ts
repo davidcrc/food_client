@@ -52,6 +52,8 @@ export interface Restaurant {
   reviews: string
   category: string
   dishes: Dish[]
+  rating?: any
+  type?: any
 }
 
 export interface Dish {

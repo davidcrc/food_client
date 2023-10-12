@@ -30,16 +30,18 @@ const FeatureRow = ({ id, title, description, restaurants }: FeaturedType) => {
             <ResturantCard
               key={resturant.id}
               id={resturant.id}
-              imgUrl={resturant.image}
-              title={resturant.name}
+              image={resturant.image}
+              name={resturant.name}
               rating={resturant.rating}
               type={resturant.type?.name}
-              address="123 main street"
+              address={resturant.address}
               description={resturant.description}
               dishes={resturant.dishes}
               lng={resturant.lng}
               lat={resturant.lat}
-              reviews={1}
+              reviews={resturant.reviews ?? 0}
+              stars={0}
+              category={""}
             />
           )
         })}

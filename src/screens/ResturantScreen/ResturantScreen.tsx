@@ -6,17 +6,16 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native"
-import React, { useEffect, useLayoutEffect } from "react"
+import React, { useEffect, useLayoutEffect, useState } from "react"
 import { useNavigation, useRoute } from "@react-navigation/native"
-import { BasketIcon, DishRow } from "@/components"
+import { CartIcon, DishRow } from "@/components"
+import { useDispatch } from "react-redux"
 import { themeColors } from "@/theme"
 import * as Icon from "react-native-feather"
 import IMAGES from "@/assets"
+import { setRestaurant } from "@/slices/restaurantSlice"
 
-export default function ResturantScreen() {
-  const navigation = useNavigation()
-  // const resturant = useSelector(selectResturant)
-  // let dispatch = useDispatch()
+const ResturantScreen = () => {
   const {
     params: {
       id,
@@ -31,32 +30,35 @@ export default function ResturantScreen() {
       lat,
     },
   } = useRoute()
+
+  const navigation = useNavigation()
+  // const resturant = useSelector(selectResturant)
+  let dispatch = useDispatch()
+
   useLayoutEffect(() => {
     navigation.setOptions({ headerShown: false })
   }, [])
+
   useEffect(() => {
-    // if (resturant && resturant.id != id) {
-    //   dispatch(emptyBasket())
-    // }
-    // dispatch(
-    //   setResturant({
-    //     id,
-    //     title,
-    //     imgUrl,
-    //     rating,
-    //     type,
-    //     address,
-    //     description,
-    //     dishes,
-    //     lng,
-    //     lat,
-    //   })
-    // )
+    dispatch(
+      setRestaurant({
+        id,
+        title,
+        imgUrl,
+        rating,
+        type,
+        address,
+        description,
+        dishes,
+        lng,
+        lat,
+      })
+    )
   }, [])
 
   return (
     <>
-      <BasketIcon />
+      <CartIcon />
       <StatusBar barStyle="light-content" />
 
       <View className="relative z-50">
@@ -70,11 +72,6 @@ export default function ResturantScreen() {
       <ScrollView>
         <View className="relative">
           <Image className="w-full h-72" source={imgUrl} />
-          {/* <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            className="absolute top-14 left-4 bg-gray-50 p-2 rounded-full shadow">
-            <Icon.ArrowLeft strokeWidth={3} stroke={themeColors.bgColor(1)} />
-          </TouchableOpacity> */}
         </View>
 
         <View
@@ -106,11 +103,11 @@ export default function ResturantScreen() {
         <View className="pb-36 bg-white">
           <Text className="px-4 py-4 text-2xl font-bold">Menu</Text>
           {/* dishes */}
-          {dishes.map(dish => {
+          {dishes.map((dish, index) => {
             return (
               <DishRow
-                key={dish._id}
-                id={dish._id}
+                key={index}
+                id={dish.id}
                 name={dish.name}
                 description={dish.description}
                 price={dish.price}
@@ -123,3 +120,5 @@ export default function ResturantScreen() {
     </>
   )
 }
+
+export default ResturantScreen

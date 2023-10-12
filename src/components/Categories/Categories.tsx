@@ -4,9 +4,10 @@ import { categories } from "@/constants"
 // import { getCategories } from '../api'
 // import { urlFor } from '../sanity';
 
-export default function Categories() {
+const Categories = () => {
   const [activeCategory, setActiveCategory] = useState<number | null>(1)
-  // const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([])
+
   useEffect(() => {
     // getCategories().then(data=>{
     //   // console.log('got data', data[0].name);
@@ -49,3 +50,5 @@ export default function Categories() {
     </View>
   )
 }
+
+export default Categories

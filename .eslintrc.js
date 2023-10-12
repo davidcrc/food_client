@@ -29,18 +29,21 @@ module.exports = {
     "sourceType": "module"
   },
   "plugins": [
+    "react-hooks",
     "@typescript-eslint",
     "react",
-    'import'
+    'import',
   ],
   "rules": {
-    semi: "off",
-    'import/order': [
+    "semi": "off",
+    "import/order": [
       'error',
       {
         groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
       },
     ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   settings: {
     react: {

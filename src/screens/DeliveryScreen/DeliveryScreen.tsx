@@ -2,21 +2,34 @@ import React from "react"
 import { View, Text, TouchableOpacity, Image } from "react-native"
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps"
 import { useNavigation } from "@react-navigation/native"
-import IMAGES from "@/assets"
-import { Phone, X } from "react-native-feather"
+import { ArrowLeft, Phone, X } from "react-native-feather"
 import { themeColors } from "@/theme"
-import { featured } from "@/constants"
+import IMAGES from "@/assets"
+import { useDispatch, useSelector } from "react-redux"
+import { selectRestaurant } from "@/slices/restaurantSlice"
+import { emptyCart } from "@/slices/cartSlice"
+import { RouteName } from "@/navigation"
 
 const DeliveryScreen = () => {
   const navigation = useNavigation()
-  const resturant = featured.restaurants[0]
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch()
+
+  const resturant = useSelector(selectRestaurant)
+
   const handleCancel = () => {
-    // dispatch(emptyBasket());
-    navigation.navigate("Home")
+    dispatch(emptyCart())
+    navigation.navigate(RouteName.Home)
   }
+
   return (
     <View className="flex-1">
+      {/* TODO: back to restaurant */}
+      <TouchableOpacity
+        style={{ backgroundColor: themeColors.bgColor(1) }}
+        onPress={() => navigation.navigate(RouteName.Cart)}
+        className="absolute z-10 rounded-full p-1 shadow top-5 left-2">
+        <ArrowLeft strokeWidth={3} stroke="white" />
+      </TouchableOpacity>
       <MapView
         provider={PROVIDER_GOOGLE}
         initialRegion={{
@@ -32,7 +45,7 @@ const DeliveryScreen = () => {
             latitude: resturant.lat,
             longitude: resturant.lng,
           }}
-          title={resturant.name}
+          title={resturant.title}
           description={resturant.description}
           pinColor={themeColors.bgColor(1)}
         />

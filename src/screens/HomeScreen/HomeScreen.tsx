@@ -15,12 +15,14 @@ import { themeColors } from "@/theme"
 import { featured } from "@/constants"
 import { Categories, FeatureRow } from "@/components"
 
-export default function HomeScreen() {
-  // const [featuredCategories, setFeaturedCategories] = useState([])
+const HomeScreen = () => {
   const navigation = useNavigation()
+  const [featuredCategories, setFeaturedCategories] = useState([])
+
   useLayoutEffect(() => {
     navigation.setOptions({ headerShown: false })
   }, [])
+
   useEffect(() => {
     // getFeaturedResturants().then(data => {
     //   setFeaturedCategories(data)
@@ -79,3 +81,5 @@ export default function HomeScreen() {
     </SafeAreaView>
   )
 }
+
+export default HomeScreen

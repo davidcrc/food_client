@@ -1,4 +1,4 @@
-export * from "./BasketIcon"
+export * from "./CartIcon"
 export * from "./Categories"
 export * from "./DishRow"
 export * from "./FeatureRow"

@@ -2,12 +2,13 @@ import React, { useEffect } from "react"
 import { View, Text, Image } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import IMAGES from "@/assets"
+import { RouteName } from "@/navigation"
 
 const PreparingOrderScreen = () => {
   const navigation = useNavigation()
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate("Delivery")
+      navigation.navigate(RouteName.Delivery)
     }, 3000)
   }, [])
 

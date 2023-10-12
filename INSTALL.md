@@ -1,4 +1,4 @@
-@ Setup project
+# Setup project
 
 ```bash
 npx react-native@latest init food_client --template react-native-template-typescript
@@ -97,6 +97,8 @@ yarn add eslint-plugin-react-hooks --dev
 ```
 
 # Add NativeWind
+
+- https://www.nativewind.dev/quick-starts/create-react-native-app
 
 ```bash
 yarn add nativewind
@@ -206,6 +208,8 @@ module.exports = {
 
 # Add react navigation ( run: pod install )
 
+- https://reactnavigation.org/docs/hello-react-navigation/
+
 ```bash
 yarn add @react-navigation/native react-native-screens react-native-safe-area-context
 ```
@@ -221,6 +225,8 @@ yarn add -D eslint-plugin-import
 ```
 
 # Add React Native Feather Icons
+
+- https://www.npmjs.com/package/react-native-feather
 
 ```bash
 yarn add react-native-feather react-native-svg
@@ -279,3 +285,11 @@ dependencies{
 - Add to .gitignore: ios/Config.xcconfig
 
 - ALSO: Open project
+
+# Add Redux toolkit
+
+- https://redux-toolkit.js.org/tutorials/quick-start
+
+```bash
+yarn add @reduxjs/toolkit react-redux
+```

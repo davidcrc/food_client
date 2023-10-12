@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native"
 import { themeColors } from "@/theme"
 import { MapPin } from "react-native-feather"
 import IMAGES from "@/assets"
+import { RouteName } from "@/navigation"
 
 const ResturantCard = ({
   id,
@@ -23,7 +24,7 @@ const ResturantCard = ({
   return (
     <TouchableWithoutFeedback
       onPress={() => {
-        navigation.navigate("Restaurant", {
+        navigation.navigate(RouteName.Restaurant, {
           id,
           title,
           imgUrl,

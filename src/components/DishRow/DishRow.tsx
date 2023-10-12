@@ -1,17 +1,30 @@
 import React from "react"
 import { View, Text, TouchableOpacity, Image } from "react-native"
-import { themeColors } from "../../theme"
+import { themeColors } from "@/theme"
 import { Minus, Plus } from "react-native-feather"
+import { useDispatch, useSelector } from "react-redux"
+import {
+  Item,
+  addToCart,
+  removeFromCart,
+  selectCartItemsById,
+} from "@/slices/cartSlice"
+import { RootState } from "@/stores/store"
 
-const DishRow = ({ name, description, id, price, image }) => {
-  // const  dispatch = useDispatch();
-  // const basketItems = useSelector(state=> selectBasketItemsById(state, id));
+const DishRow = ({ name, description, id, price, image }: Item) => {
+  const dispatch = useDispatch()
+  const cartItems = useSelector((state: RootState) =>
+    selectCartItemsById(state, id)
+  )
+
   const handleIncrease = () => {
-    // dispatch(addToBasket({id, name, price, image, description}));
+    dispatch(addToCart({ id, name, price, image, description }))
   }
+
   const handleDecrease = () => {
-    // dispatch(removeFromBasket({id}))
+    dispatch(removeFromCart({ id }))
   }
+
   return (
     <>
       <View className="flex-row items-center bg-white p-3 rounded-3xl shadow-2xl mb-3 mx-2">
@@ -30,12 +43,12 @@ const DishRow = ({ name, description, id, price, image }) => {
             <View className="flex-row items-center gap-2">
               <TouchableOpacity
                 onPress={handleDecrease}
-                // disabled={!basketItems.length}
+                disabled={!cartItems.length}
                 className="p-1 rounded-full"
                 style={{ backgroundColor: themeColors.bgColor(1) }}>
                 <Minus strokeWidth={2} height={20} width={20} stroke="white" />
               </TouchableOpacity>
-              {/* <Text className="px-3">{basketItems.length}</Text> */}
+              <Text className="px-3">{cartItems.length}</Text>
 
               <TouchableOpacity
                 onPress={handleIncrease}

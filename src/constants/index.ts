@@ -122,21 +122,21 @@ export const featured: FeaturedType = {
       category: "Fast Food",
       dishes: [
         {
-          id: 1,
+          id: 5,
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,
           image: IMAGES.pizzaDish,
         },
         {
-          id: 2,
+          id: 6,
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,
           image: IMAGES.pizzaDish,
         },
         {
-          id: 3,
+          id: 7,
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,
@@ -157,21 +157,21 @@ export const featured: FeaturedType = {
       category: "Fast Food",
       dishes: [
         {
-          id: 1,
+          id: 8,
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,
           image: IMAGES.pizzaDish,
         },
         {
-          id: 2,
+          id: 9,
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,
           image: IMAGES.pizzaDish,
         },
         {
-          id: 3,
+          id: 10,
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,

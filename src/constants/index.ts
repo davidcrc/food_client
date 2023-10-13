@@ -1,33 +1,35 @@
 import IMAGES from "@/assets"
 
-export const categories = [
+export type CategoriesType = { id: string; name: string; image: any }
+
+export const categories: CategoriesType[] = [
   {
-    id: 1,
+    id: "1",
     name: "Pizza",
     image: IMAGES.pizzaIcon,
   },
   {
-    id: 2,
+    id: "2",
     name: "Burger",
     image: IMAGES.pizzaIcon,
   },
   {
-    id: 3,
+    id: "3",
     name: "Italian",
     image: IMAGES.pizzaIcon,
   },
   {
-    id: 4,
+    id: "4",
     name: "Chinese",
     image: IMAGES.pizzaIcon,
   },
   {
-    id: 5,
+    id: "5",
     name: "Noodles",
     image: IMAGES.pizzaIcon,
   },
   {
-    id: 6,
+    id: "6",
     name: "Sweets",
     image: IMAGES.pizzaIcon,
   },
@@ -41,9 +43,9 @@ export interface FeaturedType {
 }
 
 export interface Restaurant {
-  id: number
+  id: string
   name: string
-  image: number
+  image: any
   description: string
   lng: number
   lat: number
@@ -57,7 +59,7 @@ export interface Restaurant {
 }
 
 export interface Dish {
-  id: number
+  id: string
   name: string
   description: string
   price: number
@@ -70,7 +72,7 @@ export const featured: FeaturedType = {
   description: "soft and tender fried chicken",
   restaurants: [
     {
-      id: 1,
+      id: "1",
       name: "Papa Johns",
       image: IMAGES.pizza,
       description: "Hot and spicy pizzas",
@@ -82,28 +84,28 @@ export const featured: FeaturedType = {
       category: "Fast Food",
       dishes: [
         {
-          id: 1,
+          id: "1",
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,
           image: IMAGES.pizzaDish,
         },
         {
-          id: 2,
+          id: "2",
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,
           image: IMAGES.pizzaDish,
         },
         {
-          id: 3,
+          id: "3",
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,
           image: IMAGES.pizzaDish,
         },
         {
-          id: 4,
+          id: "4",
           name: "big pizza",
           description: "cheezy garlic big pizza",
           price: 16,
@@ -112,7 +114,7 @@ export const featured: FeaturedType = {
       ],
     },
     {
-      id: 2,
+      id: "2",
       name: "Papa Johns",
       image: IMAGES.pizza,
       description: "Hot and spicy pizzas",
@@ -124,21 +126,21 @@ export const featured: FeaturedType = {
       category: "Fast Food",
       dishes: [
         {
-          id: 5,
+          id: "5",
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,
           image: IMAGES.pizzaDish,
         },
         {
-          id: 6,
+          id: "6",
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,
           image: IMAGES.pizzaDish,
         },
         {
-          id: 7,
+          id: "7",
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,
@@ -147,7 +149,7 @@ export const featured: FeaturedType = {
       ],
     },
     {
-      id: 3,
+      id: "3",
       name: "Papa Johns",
       image: IMAGES.pizza,
       description: "Hot and spicy pizzas",
@@ -159,21 +161,21 @@ export const featured: FeaturedType = {
       category: "Fast Food",
       dishes: [
         {
-          id: 8,
+          id: "8",
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,
           image: IMAGES.pizzaDish,
         },
         {
-          id: 9,
+          id: "9",
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,
           image: IMAGES.pizzaDish,
         },
         {
-          id: 10,
+          id: "10",
           name: "pizza",
           description: "cheezy garlic pizza",
           price: 10,

@@ -293,3 +293,13 @@ dependencies{
 ```bash
 yarn add @reduxjs/toolkit react-redux
 ```
+
+# Add Sanity client
+
+```bash
+yarn add @sanity/client
+```
+
+```bash
+yarn add -D @sanity/image-url
+```

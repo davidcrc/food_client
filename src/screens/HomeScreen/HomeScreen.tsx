@@ -10,23 +10,25 @@ import {
 import React, { useLayoutEffect, useState, useEffect } from "react"
 import { useNavigation } from "@react-navigation/native"
 import { Search, MapPin, Sliders } from "react-native-feather"
-// import { getFeaturedResturants } from "../api"
 import { themeColors } from "@/theme"
-import { featured } from "@/constants"
+import { FeaturedType, featured } from "@/constants"
 import { Categories, FeatureRow } from "@/components"
+import { getFeaturedResturants } from "@/service/delivery-service"
 
 const HomeScreen = () => {
   const navigation = useNavigation()
-  const [featuredCategories, setFeaturedCategories] = useState([])
+  const [featuredCategories, setFeaturedCategories] = useState<FeaturedType[]>(
+    []
+  )
 
   useLayoutEffect(() => {
     navigation.setOptions({ headerShown: false })
   }, [])
 
   useEffect(() => {
-    // getFeaturedResturants().then(data => {
-    //   setFeaturedCategories(data)
-    // })
+    getFeaturedResturants().then(data => {
+      setFeaturedCategories(data)
+    })
   }, [])
 
   return (
@@ -64,7 +66,7 @@ const HomeScreen = () => {
 
         {/* featured */}
         <View className="mt-5">
-          {[featured, featured, featured]?.map((category, index) => {
+          {featuredCategories.map((category, index) => {
             return (
               <FeatureRow
                 key={`${index}`}

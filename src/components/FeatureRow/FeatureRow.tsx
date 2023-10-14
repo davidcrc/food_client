@@ -40,8 +40,8 @@ const FeatureRow = ({ id, title, description, restaurants }: FeaturedType) => {
               lng={resturant.lng}
               lat={resturant.lat}
               reviews={resturant.reviews ?? 0}
-              stars={0}
-              category={""}
+              stars={resturant.stars}
+              category={resturant.category}
             />
           )
         })}

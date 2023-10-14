@@ -1,24 +1,21 @@
 import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native"
 import React, { useState, useEffect } from "react"
-import { categories } from "@/constants"
-// import { getCategories } from '../api'
-// import { urlFor } from '../sanity';
+import { getCategories } from "@/service/delivery-service"
+import { CategoriesType } from "@/constants"
 
 const Categories = () => {
-  const [activeCategory, setActiveCategory] = useState<number | null>(3)
-  // const [categories, setCategories] = useState([])
+  const [activeCategory, setActiveCategory] = useState<string | null>()
+  const [categories, setCategories] = useState<CategoriesType[]>([])
 
   useEffect(() => {
-    // getCategories().then(data=>{
-    //   // console.log('got data', data[0].name);
-    //   setCategories(data);
-    // })
+    getCategories().then(data => {
+      setCategories(data)
+    })
   }, [])
 
   return (
     <View className="mt-4">
       <ScrollView
-        // className="p-4"
         horizontal
         showsHorizontalScrollIndicator={false}
         className="overflow-visible"
@@ -39,7 +36,7 @@ const Categories = () => {
                 className={`p-1 rounded-full shadow ${btnClass}`}>
                 <Image
                   style={{ width: 45, height: 45 }}
-                  source={category.image}
+                  source={{ uri: category.image }}
                 />
               </TouchableOpacity>
               <Text className={`text-sm ${textClass}`}>{category.name}</Text>

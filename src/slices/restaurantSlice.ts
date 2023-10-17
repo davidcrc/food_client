@@ -1,23 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit"
-import type { PayloadAction } from "@reduxjs/toolkit"
-import { RootState } from "@/stores/store"
-import { Dish } from "@/constants"
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+
+import { Dish } from '@/constants';
+import { RootState } from '@/stores/store';
 
 export interface Restaurant {
-  id: number | undefined
-  title: string | undefined
-  imgUrl: string | undefined
-  rating: number | undefined
-  genre: string | undefined
-  address: string | undefined
-  description: string | undefined
-  dishes: Dish[] | undefined
-  lng: number
-  lat: number
+  id: number | undefined;
+  title: string | undefined;
+  imgUrl: string | undefined;
+  rating: number | undefined;
+  genre: string | undefined;
+  address: string | undefined;
+  description: string | undefined;
+  dishes: Dish[] | undefined;
+  lng: number;
+  lat: number;
 }
 
 export interface RestaurantState {
-  restaurant: Restaurant
+  restaurant: Restaurant;
 }
 
 const initialState: RestaurantState = {
@@ -33,22 +34,21 @@ const initialState: RestaurantState = {
     lng: -122.4324,
     lat: 37.78825,
   },
-}
+};
 
 export const restaurnatSlice = createSlice({
-  name: "restaurant",
+  name: 'restaurant',
   initialState,
   reducers: {
     setRestaurant: (state, action: PayloadAction<any>) => {
-      state.restaurant = action.payload
+      state.restaurant = action.payload;
     },
   },
-})
+});
 
 // Action creators are generated for each case reducer function
-export const { setRestaurant } = restaurnatSlice.actions
+export const { setRestaurant } = restaurnatSlice.actions;
 
-export const selectRestaurant = (state: RootState) =>
-  state.restaurant.restaurant
+export const selectRestaurant = (state: RootState) => state.restaurant.restaurant;
 
-export default restaurnatSlice.reducer
+export default restaurnatSlice.reducer;

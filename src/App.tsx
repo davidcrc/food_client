@@ -1,8 +1,8 @@
-import { SafeAreaProvider } from "react-native-safe-area-context"
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Provider } from 'react-redux';
 
-import { Provider } from "react-redux"
-import { store } from "./stores/store"
-import { Navigation } from "./navigation"
+import { Navigation } from './navigation';
+import { store } from './stores/store';
 
 function App(): JSX.Element {
   return (
@@ -11,7 +11,7 @@ function App(): JSX.Element {
         <Navigation />
       </SafeAreaProvider>
     </Provider>
-  )
+  );
 }
 
-export default App
+export default App;

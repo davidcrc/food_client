@@ -7,92 +7,86 @@ npx react-native@latest init food_client --template react-native-template-typesc
 # Add ESLINT
 
 ```bash
-yarn add -D eslint
+yarn add eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
 ```
 
-## Select the better options and standar style
+- Add to package.json
 
-- remove packge-lock, an run yarn install
-
-```bash
-npx eslint --init
-```
-
-- In .eslintrc.js
-
-```js
+```json
 {
-  extends: [
-    "plugin:react/recommended",
-    "standard",
-    "plugin:react-hooks/recommended",
-    "eslint-config-prettier",
-    "plugin:react/jsx-runtime"
-  ],
+  "lint": "eslint --ext .tsx,.ts src/",
+  "format": "eslint --ext .tsx,.ts src/ --fix"
 }
 ```
 
-- Create .eslintignore, add: dist
+- add to eslintrc.js
 
-## Add prettier
+```js
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": ["plugin:@typescript-eslint/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  // 0 = off, 1 = warn, 2 = error
+  "rules": {
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-parameter-properties": 0,
+    "@typescript-eslint/interface-name-prefix": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/ban-types": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-empty-function": 1
+  }
+}
+```
 
-- In .prettierrc.js
+# Prettier
+
+```bash
+yarn add -D prettier eslint-config-prettier eslint-plugin-prettier
+```
+
+- add to .prettierrc.js
 
 ```js
 module.exports = {
-  singleQuote: false,
-  semi: false,
-  arrowParens: "avoid",
-  bracketSameLine: true,
-  bracketSpacing: true,
-  singleQuote: false,
+  semi: true,
+  trailingComma: "all",
+  singleQuote: true,
+  printWidth: 120,
+  tabWidth: 2,
 }
 ```
 
-```bash
-yarn add -D eslint-config-prettier
-```
-
-- In package.json
+- Update .eslintrc.js with:
 
 ```json
-"scripts": {
-		...
-		"lint": "eslint --ext .tsx,.ts src/",
-		"format": "prettier --write ./src"
-	},
+"extends": ["prettier", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
 ```
 
-- Also, create .prettierignore, add : dist
-
-- In .eslintrc.js
-
-```js
-{
-  ...
-  rules: {},
-  settings: {
-    react: {
-      version: "detect",
-    },
-  },
-}
-```
-
-## Add react-hooks
+# Add Exhaustive Deps
 
 ```bash
 yarn add eslint-plugin-react-hooks --dev
 ```
 
-- In .eslintrc.js
+- add to eslintrc.js
 
-```json
+```js
 {
-  "extends": [
+  "plugins": [
     // ...
-    "plugin:react-hooks/recommended"
-  ]
+    "react-hooks"
+  ],
+  "rules": {
+    // ...
+    "react-hooks/rules-of-hooks": "error", // For checking rules of hooks
+    "react-hooks/exhaustive-deps": "warn" // For checking hook dependencies
+  }
 }
 ```
 

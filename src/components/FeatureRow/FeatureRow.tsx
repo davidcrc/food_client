@@ -1,10 +1,11 @@
-import React from "react"
-import { View, Text, TouchableOpacity, ScrollView } from "react-native"
-import { FeaturedType } from "@/constants"
-import { themeColors } from "@/theme"
-import { ResturantCard } from "@/components"
+import React from 'react';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
-const FeatureRow = ({ id, title, description, restaurants }: FeaturedType) => {
+import { ResturantCard } from '@/components';
+import { FeaturedType } from '@/constants';
+import { themeColors } from '@/theme';
+
+const FeatureRow = ({ title, description, restaurants }: FeaturedType) => {
   return (
     <View>
       <View className="flex-row justify-between items-center px-4">
@@ -24,8 +25,9 @@ const FeatureRow = ({ id, title, description, restaurants }: FeaturedType) => {
         contentContainerStyle={{ paddingHorizontal: 15 }}
         className="overflow-visible py-5"
         showsHorizontalScrollIndicator={false}
-        horizontal>
-        {restaurants.map(resturant => {
+        horizontal
+      >
+        {restaurants.map((resturant) => {
           return (
             <ResturantCard
               key={resturant.id}
@@ -43,11 +45,11 @@ const FeatureRow = ({ id, title, description, restaurants }: FeaturedType) => {
               stars={resturant.stars}
               category={resturant.category}
             />
-          )
+          );
         })}
       </ScrollView>
     </View>
-  )
-}
+  );
+};
 
-export default FeatureRow
+export default FeatureRow;

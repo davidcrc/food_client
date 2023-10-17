@@ -1,1 +1,1 @@
-export { default as ResturantScreen } from "./ResturantScreen"
+export { default as ResturantScreen } from './ResturantScreen';

@@ -1,3 +1,3 @@
-export * from "./categories"
-export * from "./featured-restaurants"
-export * from "./featured-resturant-by-id"
+export * from './categories';
+export * from './featured-restaurants';
+export * from './featured-resturant-by-id';

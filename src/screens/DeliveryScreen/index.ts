@@ -1,1 +1,1 @@
-export { default as DeliveryScreen } from "./DeliveryScreen"
+export { default as DeliveryScreen } from './DeliveryScreen';

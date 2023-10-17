@@ -1,3 +1,3 @@
 export const getCategoriesQuery = () => {
-  return ` *[_type == 'category'] `
-}
+  return ` *[_type == 'category'] `;
+};

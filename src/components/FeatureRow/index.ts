@@ -1,1 +1,1 @@
-export { default as FeatureRow } from "./FeatureRow"
+export { default as FeatureRow } from './FeatureRow';

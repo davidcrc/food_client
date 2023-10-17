@@ -33,7 +33,7 @@ const DishRow = ({ name, description, id, price, image }: DishRowProps) => {
         <Image
           className="rounded-3xl"
           style={{ height: 100, width: 100 }}
-          source={image}
+          source={{ uri: image }}
         />
         <View className="flex flex-1 space-y-3">
           <View className="pl-3">

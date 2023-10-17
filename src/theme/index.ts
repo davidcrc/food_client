@@ -31,6 +31,21 @@ const pallete = [
     text: "#dc2626",
     bgColor: (opacity: OpacityType) => `rgba(248, 113, 113, ${opacity})`,
   },
+  {
+    // yellow
+    text: "#ffca28",
+    bgColor: (opacity: OpacityType) => `rgba(255, 202, 40, ${opacity})`,
+  },
+  {
+    // brown
+    text: "#8a4f31",
+    bgColor: (opacity: OpacityType) => `rgba(138, 79, 49, ${opacity})`,
+  },
+  {
+    // pink
+    text: "#f05d93",
+    bgColor: (opacity: OpacityType) => `rgba(240, 93, 147, ${opacity})`,
+  },
 ]
 
 export const themeColors = {

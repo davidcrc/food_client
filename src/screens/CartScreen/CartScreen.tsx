@@ -88,7 +88,10 @@ const CartScreen = () => {
               <Text style={{ color: themeColors.text }} className="font-bold">
                 {items.length} x{" "}
               </Text>
-              <Image className="h-14 w-14 rounded-full" source={disk?.image} />
+              <Image
+                className="h-14 w-14 rounded-full"
+                source={{ uri: disk?.image }}
+              />
               <Text className="flex-1 font-bold text-gray-700">
                 {disk?.name}
               </Text>

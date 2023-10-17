@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit"
 import { RootState } from "@/stores/store"
 
 export interface Item {
-  id: number
+  id: string
   name: string
   price: number
   image: any
@@ -25,7 +25,7 @@ export const cartSlice = createSlice({
     addToCart: (state, action: PayloadAction<Item>) => {
       state.items = [...state.items, action.payload]
     },
-    removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
+    removeFromCart: (state, action: PayloadAction<{ id: string }>) => {
       let newCart = [...state.items]
       let itemIndex = state.items.findIndex(
         item => item.id === action.payload.id
@@ -50,7 +50,7 @@ export const { addToCart, removeFromCart, emptyCart } = cartSlice.actions
 
 export const selectCartItems = (state: RootState) => state.cart.items
 
-export const selectCartItemsById = (state: RootState, id: number) =>
+export const selectCartItemsById = (state: RootState, id: string) =>
   state.cart.items.filter(item => item.id === id)
 
 export const selectCartTotal = (state: RootState) =>

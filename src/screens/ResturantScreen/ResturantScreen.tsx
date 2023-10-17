@@ -6,7 +6,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native"
-import React, { useEffect, useLayoutEffect } from "react"
+import React, { useEffect, useLayoutEffect, useState } from "react"
 import { useNavigation, useRoute } from "@react-navigation/native"
 import { CartIcon, DishRow } from "@/components"
 import { useDispatch, useSelector } from "react-redux"
@@ -19,6 +19,8 @@ import {
   ResturantScreenRoute,
 } from "./ResturantScreenTypes"
 import { emptyCart } from "@/slices/cartSlice"
+import { Dish } from "@/constants"
+import { getDishesByRestaurant } from "@/service/delivery-service"
 
 const ResturantScreen = () => {
   const {
@@ -30,7 +32,7 @@ const ResturantScreen = () => {
       type,
       address,
       description,
-      dishes,
+      // dishes,
       lng,
       lat,
     },
@@ -38,6 +40,8 @@ const ResturantScreen = () => {
 
   const navigation = useNavigation<ResturantScreenNavigation>()
   const resturant = useSelector(selectRestaurant)
+  const [loading, setLoading] = useState(true)
+  const [dishes, setDishes] = useState<Dish[]>([])
   let dispatch = useDispatch()
 
   useLayoutEffect(() => {
@@ -66,6 +70,16 @@ const ResturantScreen = () => {
     )
   }, [])
 
+  // TODO: maybe use react-query
+  useEffect(() => {
+    try {
+      getDishesByRestaurant(id).then(data => {
+        setDishes(data)
+        setLoading(false)
+      })
+    } catch (error) {}
+  }, [])
+
   return (
     <>
       <CartIcon />
@@ -81,7 +95,7 @@ const ResturantScreen = () => {
 
       <ScrollView>
         <View className="relative">
-          <Image className="w-full h-72" source={imgUrl} />
+          <Image className="w-full h-72" source={{ uri: imgUrl }} />
         </View>
 
         <View
@@ -125,6 +139,14 @@ const ResturantScreen = () => {
               />
             )
           })}
+
+          {loading && <Text>Loading...</Text>}
+
+          {!loading && !dishes.length && (
+            <Text className="px-4">
+              Sorry not have menu for this restaurant in this moment
+            </Text>
+          )}
         </View>
       </ScrollView>
     </>

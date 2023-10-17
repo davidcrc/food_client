@@ -10,5 +10,5 @@ export const getFeaturedResturantByIdQuery = () => {
             }
           }
         }[0]
-  `
-}
+  `;
+};

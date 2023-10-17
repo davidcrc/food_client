@@ -1,1 +1,1 @@
-export { default as PreparingOrderScreen } from "./PreparingOrderScreen"
+export { default as PreparingOrderScreen } from './PreparingOrderScreen';

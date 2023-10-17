@@ -1,15 +1,11 @@
-import sanityClient from "@/sanity"
-import {
-  getCategoriesQuery,
-  getFeaturedResturantByIdQuery,
-  getFeaturedResturantsQuery,
-} from "./queries"
-import { CategoriesType, Dish, FeaturedType } from "@/constants"
-import { urlFor } from "@/sanity"
-import { getDishesByRestaurantQuery } from "./queries/get-dishes-by-restaurant"
+import { getCategoriesQuery, getFeaturedResturantByIdQuery, getFeaturedResturantsQuery } from './queries';
+import { getDishesByRestaurantQuery } from './queries/get-dishes-by-restaurant';
 
-let sanityQuery = (query: string, params?: any) =>
-  sanityClient.fetch(query, params)
+import { CategoriesType, Dish, FeaturedType } from '@/constants';
+import sanityClient from '@/sanity';
+import { urlFor } from '@/sanity';
+
+const sanityQuery = (query: string, params?: any) => sanityClient.fetch(query, params);
 
 const formedFeaturedRestaurant = (data: any) => {
   const restaurants = data.restaurants.map((restaurant: any) => {
@@ -27,21 +23,21 @@ const formedFeaturedRestaurant = (data: any) => {
       dishes: [],
       rating: restaurant.rating,
       type: restaurant.type,
-    }
-  })
+    };
+  });
 
   const featuredRestaurant = {
     id: data._id,
     title: data.name,
     description: data.description,
     restaurants,
-  }
+  };
 
-  return featuredRestaurant
-}
+  return featuredRestaurant;
+};
 
 export const getDishesByRestaurant = async (id: string): Promise<Dish[]> => {
-  const response = await sanityQuery(getDishesByRestaurantQuery(), { id })
+  const response = await sanityQuery(getDishesByRestaurantQuery(), { id });
 
   // console.log("RESPONSE", JSON.stringify(response))
 
@@ -51,23 +47,23 @@ export const getDishesByRestaurant = async (id: string): Promise<Dish[]> => {
     description: dish.description,
     price: dish.price,
     image: urlFor(dish.image).url(),
-  }))
-}
+  }));
+};
 
 export const getFeaturedResturants = async (): Promise<FeaturedType[]> => {
-  const response = await sanityQuery(getFeaturedResturantsQuery())
+  const response = await sanityQuery(getFeaturedResturantsQuery());
 
   // console.log("RESPONSE", JSON.stringify(response))
 
   return (
     response.map((data: any) => {
-      return formedFeaturedRestaurant(data)
+      return formedFeaturedRestaurant(data);
     }) ?? []
-  )
-}
+  );
+};
 
 export const getCategories = async (): Promise<CategoriesType[]> => {
-  const response = await sanityQuery(getCategoriesQuery())
+  const response = await sanityQuery(getCategoriesQuery());
 
   // console.log("RESPONSE", JSON.stringify(response))
 
@@ -77,11 +73,11 @@ export const getCategories = async (): Promise<CategoriesType[]> => {
       name: category.name,
       image: urlFor(category.image).url(),
     })) ?? []
-  )
-}
+  );
+};
 
 export const getFeaturedResturantById = (id: any) => {
-  const response = sanityQuery(getFeaturedResturantByIdQuery(), { id })
+  const response = sanityQuery(getFeaturedResturantByIdQuery(), { id });
 
-  return formedFeaturedRestaurant(response)
-}
+  return formedFeaturedRestaurant(response);
+};

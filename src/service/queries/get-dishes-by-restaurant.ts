@@ -4,5 +4,5 @@ export const getDishesByRestaurantQuery = () => {
         _id,
         dishes[]->,
       }[0]
-`
-}
+`;
+};

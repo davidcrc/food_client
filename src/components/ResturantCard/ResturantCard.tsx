@@ -1,14 +1,17 @@
-import React from "react"
-import { View, Text, TouchableWithoutFeedback, Image } from "react-native"
-import { useNavigation } from "@react-navigation/native"
-import { themeColors } from "@/theme"
-import { MapPin } from "react-native-feather"
-import IMAGES from "@/assets"
-import { RouteName } from "@/navigation"
-import { ResturantCardNavigation } from "./ResturantCardTypes"
-import { Restaurant } from "@/constants"
+import React from 'react';
+import { Image, Text, TouchableWithoutFeedback, View } from 'react-native';
 
-type RestaurantCardProps = Restaurant
+import { useNavigation } from '@react-navigation/native';
+import { MapPin } from 'react-native-feather';
+
+import { ResturantCardNavigation } from './ResturantCardTypes';
+
+import IMAGES from '@/assets';
+import { Restaurant } from '@/constants';
+import { RouteName } from '@/navigation';
+import { themeColors } from '@/theme';
+
+type RestaurantCardProps = Restaurant;
 
 const ResturantCard = ({
   id,
@@ -23,7 +26,7 @@ const ResturantCard = ({
   lng,
   lat,
 }: RestaurantCardProps) => {
-  const navigation = useNavigation<ResturantCardNavigation>()
+  const navigation = useNavigation<ResturantCardNavigation>();
 
   return (
     <TouchableWithoutFeedback
@@ -40,11 +43,13 @@ const ResturantCard = ({
           lng,
           reviews,
           lat,
-        })
-      }}>
+        });
+      }}
+    >
       <View
         style={{ shadowColor: themeColors.bgColor(0.2), shadowRadius: 7 }}
-        className="mr-6 bg-white rounded-3xl shadow-lg">
+        className="mr-6 bg-white rounded-3xl shadow-lg"
+      >
         <Image className="h-36 w-64 rounded-t-3xl" source={{ uri: imgUrl }} />
 
         <View className="px-3 pb-4 space-y-2">
@@ -64,7 +69,7 @@ const ResturantCard = ({
         </View>
       </View>
     </TouchableWithoutFeedback>
-  )
-}
+  );
+};
 
-export default ResturantCard
+export default ResturantCard;

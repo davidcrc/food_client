@@ -1,1 +1,1 @@
-export { default as DishRow } from "./DishRow"
+export { default as DishRow } from './DishRow';

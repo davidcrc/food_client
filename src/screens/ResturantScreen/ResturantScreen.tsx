@@ -50,7 +50,7 @@ const ResturantScreen = () => {
         lat,
       }),
     );
-  }, [address, description, dishes, dispatch, id, imgUrl, lat, lng, rating, resturant, title, type]);
+  }, []);
 
   // TODO: maybe use react-query
   useEffect(() => {

@@ -50,6 +50,7 @@ const ResturantScreen = () => {
         lat,
       }),
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // TODO: maybe use react-query

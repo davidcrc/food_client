@@ -19,8 +19,8 @@ import {
   ResturantScreenRoute,
 } from "./ResturantScreenTypes"
 import { emptyCart } from "@/slices/cartSlice"
-import { Dish } from "../../constants"
-import { getDishesByRestaurant } from "../../service/delivery-service"
+import { Dish } from "@/constants"
+import { getDishesByRestaurant } from "@/service/delivery-service"
 
 const ResturantScreen = () => {
   const {

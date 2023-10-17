@@ -74,7 +74,6 @@ const HomeScreen = () => {
                 title={category.title}
                 restaurants={category?.restaurants}
                 description={category.description}
-                // featuredCategory={category.type}
               />
             )
           })}
